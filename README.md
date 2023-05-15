@@ -116,4 +116,37 @@ By throwing the TablesException with the appropriate error code and message, you
 
 Use the appropriate error code from the table above when throwing a `TablesException` in your implementation of the `ITablesAPIServer` interface. This will ensure proper error handling and communication between your EPOS and the Dojo server.
 
-# Logging
+## Using ILogger with DojoTablesConnector
+
+You can easily integrate your own `ILogger` instance with the `DojoTablesConnector` to handle logging during the connector's operation. To do this, follow these steps:
+
+1. Ensure you have the necessary NuGet packages installed for logging, such as Microsoft.Extensions.Logging.
+2. Create or use an existing `ILogger` instance in your project.
+3. Pass the `ILogger` instance as an argument to the `DojoTablesConnector` constructor.
+
+Here's an example of how to create a simple console logger and pass it to the `DojoTablesConnector`:
+
+```csharp
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
+
+using ILoggerFactory loggerFactory =
+    LoggerFactory.Create(builder =>
+        builder.AddSimpleConsole(options =>
+        {
+            options.IncludeScopes = true;
+            options.SingleLine = true;
+            options.TimestampFormat = "HH:mm:ss ";
+        }));
+
+ILogger<Program> logger = loggerFactory.CreateLogger<Program>();
+
+// Initialize the DojoTablesConnector with the ILogger instance
+DojoTablesConnector connector = new DojoTablesConnector(accountId, apiKey, softwareHouseId, isSandbox)
+{
+    ResellerId = resellerId, // optional    
+    Logger = logger 
+};
+```
+
+By providing an `ILogger` instance to the `DojoTablesConnector`, the connector will use it for logging its internal operations. This way, you can have a consistent and unified logging mechanism across your entire application.
