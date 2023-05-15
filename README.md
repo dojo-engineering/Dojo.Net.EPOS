@@ -17,7 +17,7 @@ Alternatively, you can use the NuGet Package Manager in Visual Studio to search 
 To use the Dojo.Net.EPOS package in your project, follow these steps:
 
 ### Step 1: Implement the ITablesAPIServer Interface
-The first step is to create a class that implements the ITablesAPIServer interface. This interface contains several methods that correspond to different API endpoints. You should provide custom implementations for each method to handle the corresponding requests and return the appropriate responses.
+The first step is to create a class that implements the [ITablesAPIServer](Dojo.Net.EPOS.Server/ITablesAPIServer.cs) interface. This interface contains several methods that correspond to different API endpoints. You should provide custom implementations for each method to handle the corresponding requests and return the appropriate responses.
 
 Here's an example implementation of the ITablesAPIServer interface:
 
