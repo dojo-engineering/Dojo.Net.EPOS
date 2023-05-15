@@ -11,6 +11,9 @@ namespace Dojo.Net.EPOS.Server.Schema
         public RequestorInfo? RequestorInfo { get; set; }
     }
 
+    /// <summary>
+    /// <see href="https://docs.dojo.tech/tables/api/#operation-subscribe-/ListSessions"/>
+    /// </summary>
     public class ListSessionsRequest : JsonRpcRequestEnvelope<ListSessionsRequestParams>
     {
         public override async Task<JsonRpcResponseEnvelope?> AcceptMessageAsync(ITablesAPIServer server)
