@@ -28,7 +28,7 @@ namespace Dojo.Net.EPOS.Server
         /// Accepts a <c>GetFullBill</c> request message from the client and returns a response.
         /// </summary>
         /// <note>
-        /// A request from Connect for an itemised bill receipt. 
+        /// A request from Dojo for an itemised bill receipt. 
         /// If the session does not exist, the method should throw the <c>TablesException</c> with <c>SessionNoSuchSession</c> error code.
         /// <example>throw new TablesException(TablesErrorCode.SessionNoSuchSession, "reason")</example>. 
         /// If the bill does not exist, the method should throw the <c>TablesException</c> with <c>BillNoSuchBill</c> error code.
@@ -110,7 +110,7 @@ namespace Dojo.Net.EPOS.Server
         /// Accepts a <c>RecordPaymentRequest</c> request message from the client and returns a response.
         /// </summary>
         /// <note>
-        /// A request from Connect to record a payment. 
+        /// A request from Dojo to record a payment. 
         /// If the session does not exist, the method should throw the <c>TablesException</c> with <c>SessionNoSuchSession</c> error code.
         /// If the session connected to the payment is not locked, the method should throw the <c>TablesException</c> with <c>SessionNotLocked</c> error code.
         /// If this particular payment has already been recorded, the method should throw the <c>TablesException</c> with <c>PaymentAlreadyRecorded</c> error code.

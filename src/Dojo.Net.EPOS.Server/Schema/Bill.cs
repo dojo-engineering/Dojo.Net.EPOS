@@ -18,7 +18,7 @@ namespace Dojo.Net.EPOS.Server.Schema
         
         public string? Note { get; set; }
         
-        public required string SessionId { get; init; }
+        public required Guid SessionId { get; init; }
     }
 
     public class BillItemModifier 

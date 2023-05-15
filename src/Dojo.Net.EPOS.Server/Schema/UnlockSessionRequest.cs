@@ -4,7 +4,7 @@ namespace Dojo.Net.EPOS.Server.Schema
 {
     public class UnlockSessionParams
     {
-        public string? SessionId { get; init; }
+        public Guid SessionId { get; init; }
         public RequestorInfo? RequestorInfo { get; init; }        
     }
 

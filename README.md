@@ -100,4 +100,20 @@ public async Task<GetSessionResponse> AcceptMessageAsync(GetSessionRequest reque
 ```
 By throwing the TablesException with the appropriate error code and message, your EPOS is providing valuable information about the error scenario to the Dojo server. The Dojo server can then use this information to handle the error and communicate it back to the client or take other actions as necessary.
 
+| Error Code                 | Description                                                                                                                                                   |
+|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `SessionNoSuchSession`     | The requested session does not exist.                                                                                             |
+| `SessionNotLocked`         | The requested session is not locked.                                                                                              |
+| `SessionAlreadyLocked`     | The requested session is already locked.                                                                                          |
+| `SessionUnableToUnlock`    | The EPOS is unable to unlock the requested session due to internal reasons.                                                       |
+| `PaymentNotRecorded`       | The EPOS cannot record the payment due to internal reasons.                                                                      |
+| `PaymentAlreadyRecorded`   | The payment has already been recorded for the requested session.                                                                 |
+| `ErrorParseError`          | The message sent by the EPOS cannot be read by the Dojo server.                                                                  |
+| `ErrorInternalPosError`    | An internal EPOS error occurred while processing the request.                                                                    |
+| `TableNoSuchTable`         | The requested table does not exist.                                                                                              |
+| `BillNoSuchBill`           | The requested bill does not exist.                                                                                               |
+| `WaiterIncorrectWaiterId`  | The provided waiter ID is incorrect or does not exist.                                                                           |
+
+Use the appropriate error code from the table above when throwing a `TablesException` in your implementation of the `ITablesAPIServer` interface. This will ensure proper error handling and communication between your EPOS and the Dojo server.
+
 # Logging

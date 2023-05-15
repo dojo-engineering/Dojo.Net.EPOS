@@ -4,7 +4,7 @@ namespace Dojo.Net.EPOS.Server.Schema
 {
     public class ListBillItemsParams
     {
-        public List<string>? SessionIds { get; set; }
+        public List<Guid>? SessionIds { get; set; }
         public RequestorInfo? RequestorInfo { get; set; }
     }
 
