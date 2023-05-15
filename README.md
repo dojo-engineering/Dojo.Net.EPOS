@@ -19,7 +19,7 @@ To use the Dojo.Net.EPOS package in your project, follow these steps:
 ### Step 1: Implement the ITablesAPIServer Interface
 The first step is to create a class that implements the [ITablesAPIServer](./src/Dojo.Net.EPOS.Server/ITablesAPIServer.cs) interface. This interface contains several methods that correspond to different API endpoints. You should provide custom implementations for each method to handle the corresponding requests and return the appropriate responses.
 
-Here's an example implementation of the ITablesAPIServer interface:
+Here's an example implementation of the `ITablesAPIServer` interface:
 
 ```csharp
 public class MyTablesAPIServer : ITablesAPIServer
@@ -36,7 +36,7 @@ public class MyTablesAPIServer : ITablesAPIServer
 ```
 
 ### Step 2: Instantiate the DojoTablesConnector Class
-Create an instance of the DojoTablesConnector class, passing the required parameters:
+Create an instance of the `DojoTablesConnector` class, passing the required parameters:
 * accountId
 * apiKey
 * softwareHouseId
@@ -47,23 +47,23 @@ var dojoTablesConnector = new DojoTablesConnector(accountId, apiKey, softwareHou
 ```
 
 ### Step 3: Pass the ITablesAPIServer Instance to the DojoTablesConnector
-Instantiate your implementation of the ITablesAPIServer interface and pass it to the DojoTablesConnector instance:
+Instantiate your implementation of the `ITablesAPIServer` interface and pass it to the `DojoTablesConnector` instance:
 
 ```csharp
 var myTablesAPIServer = new MyTablesAPIServer();
 ```
-Now, call the StartAsync method on the dojoTablesConnector instance and pass the myTablesAPIServer instance and a CancellationToken:
+Now, call the `StartAsync` method on the dojoTablesConnector instance and pass the myTablesAPIServer instance and a CancellationToken:
 
 ```csharp
 await dojoTablesConnector.StartAsync(myTablesAPIServer, cancellationToken);
 ```
 
-That's it! The DojoTablesConnector class will now manage the WebSocket connection and handle communication with the Dojo Tables API using your custom implementation of the ITablesAPIServer interface.
+That's it! The `DojoTablesConnector` class will now manage the WebSocket connection and handle communication with the Dojo Tables API using your custom implementation of the `ITablesAPIServer` interface.
 
 # Stop connector
-To stop the DojoTablesConnector, you can simply cancel the CancellationToken that you passed to the StartAsync method. This will close the WebSocket connection and stop any ongoing communication with the Dojo Tables API.
+To stop the `DojoTablesConnector`, you can simply cancel the `CancellationToken` that you passed to the StartAsync method. This will close the WebSocket connection and stop any ongoing communication with the Dojo Tables API.
 
-Here's an example of how you can stop the DojoTablesConnector using a CancellationTokenSource:
+Here's an example of how you can stop the `DojoTablesConnector` using a `CancellationTokenSource`:
 
 ```csharp
 // Instantiate a CancellationTokenSource
@@ -78,12 +78,12 @@ await dojoTablesConnector.StartAsync(myTablesAPIServer, cancellationTokenSource.
 cancellationTokenSource.Cancel();
 ```
 
-By calling Cancel() on the CancellationTokenSource, the CancellationToken that was passed to StartAsync will be marked as canceled, and the DojoTablesConnector will gracefully stop its operation and close the WebSocket connection.
+By calling `Cancel()` on the `CancellationTokenSource`, the CancellationToken that was passed to `StartAsync` will be marked as canceled, and the `DojoTablesConnector` will gracefully stop its operation and close the WebSocket connection.
 
 # Error handling
-When your EPOS can't process a request while implementing the ITablesAPIServer interface, it's important to throw the correct exception with a specific TablesErrorCode. This will ensure proper error handling and communication with the Dojo server. The TablesException will be serialized and sent back to the Dojo server, allowing it to understand the nature of the error and take appropriate action.
+When your EPOS can't process a request while implementing the `ITablesAPIServer` interface, it's important to throw the correct exception with a specific `TablesErrorCode`. This will ensure proper error handling and communication with the Dojo server. The `TablesException` will be serialized and sent back to the Dojo server, allowing it to understand the nature of the error and take appropriate action.
 
-For example, consider a situation where you are implementing the AcceptMessageAsync(GetSessionRequest request) method from the ITablesAPIServer interface. If your EPOS can't find the requested session, you should throw a TablesException with the SessionNoSuchSession error code:
+For example, consider a situation where you are implementing the AcceptMessageAsync(GetSessionRequest request) method from the `ITablesAPIServer` interface. If your EPOS can't find the requested session, you should throw a `TablesException` with the `SessionNoSuchSession` error code:
 
 ```csharp
 public async Task<GetSessionResponse> AcceptMessageAsync(GetSessionRequest request)
@@ -98,7 +98,7 @@ public async Task<GetSessionResponse> AcceptMessageAsync(GetSessionRequest reque
     // ... Your code to return a GetSessionResponse
 }
 ```
-By throwing the TablesException with the appropriate error code and message, your EPOS is providing valuable information about the error scenario to the Dojo server. The Dojo server can then use this information to handle the error and communicate it back to the client or take other actions as necessary.
+By throwing the `TablesException` with the appropriate error code and message, your EPOS is providing valuable information about the error scenario to the Dojo server. The Dojo server can then use this information to handle the error and communicate it back to the client or take other actions as necessary.
 
 | Error Code                 | Description                                                                                                                                                   |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -108,7 +108,7 @@ By throwing the TablesException with the appropriate error code and message, you
 | `SessionUnableToUnlock`    | The EPOS is unable to unlock the requested session due to internal reasons.                                                       |
 | `PaymentNotRecorded`       | The EPOS cannot record the payment due to internal reasons.                                                                      |
 | `PaymentAlreadyRecorded`   | The payment has already been recorded for the requested session.                                                                 |
-| `ErrorParseError`          | The message sent by the EPOS cannot be read by the Dojo server.                                                                  |
+| `ErrorParseError`          | The message sent by the Dojo cannot be read by the EPOS server.                                                                  |
 | `ErrorInternalPosError`    | An internal EPOS error occurred while processing the request.                                                                    |
 | `TableNoSuchTable`         | The requested table does not exist.                                                                                              |
 | `BillNoSuchBill`           | The requested bill does not exist.                                                                                               |
@@ -116,7 +116,7 @@ By throwing the TablesException with the appropriate error code and message, you
 
 Use the appropriate error code from the table above when throwing a `TablesException` in your implementation of the `ITablesAPIServer` interface. This will ensure proper error handling and communication between your EPOS and the Dojo server.
 
-## Using ILogger with DojoTablesConnector
+## Logging
 
 You can easily integrate your own `ILogger` instance with the `DojoTablesConnector` to handle logging during the connector's operation. To do this, follow these steps:
 
