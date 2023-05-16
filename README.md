@@ -152,6 +152,7 @@ DojoTablesConnector connector = new DojoTablesConnector(accountId, apiKey, softw
 
 By providing an `ILogger` instance to the `DojoTablesConnector`, the connector will use it for logging its internal operations. This way, you can have a consistent and unified logging mechanism across your entire application.
 
+
 For any requests, bug or comments, please [open an issue][issues] or [submit a pull request][pulls].
 
 [dojo]: https://dojo.tech
