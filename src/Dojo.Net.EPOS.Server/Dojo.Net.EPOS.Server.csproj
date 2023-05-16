@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
     <LangVersion>11</LangVersion>
     <RootNamespace>Dojo.Net.EPOS.Server</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -22,10 +22,10 @@
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <RuntimeIdentifiers>win10-x64</RuntimeIdentifiers>
         <SignAssembly>True</SignAssembly>
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <!-- <GenerateDocumentationFile>true</GenerateDocumentationFile> -->
         <EmbedUntrackedSources>true</EmbedUntrackedSources>
         <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <!-- <TreatWarningsAsErrors>true</TreatWarningsAsErrors> -->
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>

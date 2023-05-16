@@ -10,7 +10,7 @@ namespace Dojo.Net.EPOS.Server
         /// <note>
         /// A request from Dojo for a list of sessions. If there are filtering params specified, 
         /// the response from the method should contain only sessions matching all of the filters. 
-        /// If no sessions match the filters, the method should return a <c>ListSessionsResponse</> with no sessions.
+        /// If no sessions match the filters, the method should return a <c>ListSessionsResponse</c> with no sessions.
         /// </note>
         /// <param name="request">The request message. <see href="https://docs.dojo.tech/tables/api/#operation-subscribe-/ListSessions"/></param>
         /// <returns>The response message.</returns>

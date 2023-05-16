@@ -6,7 +6,7 @@ namespace Dojo.Net.EPOS.Server.JsonRpc
     {
         [JsonProperty("jsonrpc")]
         public string? JsonRpc { get; } = "2.0";
-        public string Id { get; set; }
+        public string? Id { get; set; }
 
         public JsonRpcResponseEnvelope(string id)
         {
@@ -17,7 +17,7 @@ namespace Dojo.Net.EPOS.Server.JsonRpc
     public abstract class JsonRpcResponseEnvelope<T> : JsonRpcResponseEnvelope
         where T : class
     {
-        public T Result { get; set;}
+        public T? Result { get; set;}
 
         public JsonRpcResponseEnvelope(string id): base(id)
         {
