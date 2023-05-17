@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0</TargetFrameworks>
     <LangVersion>11</LangVersion>
     <RootNamespace>Dojo.Net.EPOS.Server</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -9,31 +9,33 @@
   </PropertyGroup>
 
   <PropertyGroup>
-        <Description>Dojo.Net.EPOS.Server is a async .NET server connector for the Dojo EPOS APIs. (Official Library)</Description>
-        <AssemblyTitle>Dojo.Net.EPOS.Server</AssemblyTitle>
-        <VersionPrefix>0.0.1</VersionPrefix>
-        <Version>0.0.1</Version>
-        <Authors>Dojo</Authors>
-        <AssemblyName>Dojo.Net.EPOS.Server</AssemblyName>
-        <PackageId>Dojo.Net.EPOS.Server</PackageId>
-        <PackageTags>dojo;paymentsense;payment;credit;cards;money;gateway</PackageTags>
-        <PackageProjectUrl>https://github.com/dojo-engineering/Dojo.Net.EPOS</PackageProjectUrl>
-        <PackageLicenseFile>LICENSE</PackageLicenseFile>
-        <PublishRepositoryUrl>true</PublishRepositoryUrl>
-        <RuntimeIdentifiers>win10-x64</RuntimeIdentifiers>
-        <SignAssembly>True</SignAssembly>
-        <!-- <GenerateDocumentationFile>true</GenerateDocumentationFile> -->
-        <EmbedUntrackedSources>true</EmbedUntrackedSources>
-        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-        <!-- <TreatWarningsAsErrors>true</TreatWarningsAsErrors> -->
-        <IncludeSymbols>true</IncludeSymbols>
-        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    </PropertyGroup>
+    <Description>Dojo.Net.EPOS.Server is a async .NET server connector for the Dojo EPOS APIs.
+      (Official Library)</Description>
+    <AssemblyTitle>Dojo.Net.EPOS.Server</AssemblyTitle>
+    <VersionPrefix>0.0.1</VersionPrefix>
+    <Version>0.0.1</Version>
+    <Authors>Dojo</Authors>
+    <AssemblyName>Dojo.Net.EPOS.Server</AssemblyName>
+    <PackageId>Dojo.Net.EPOS.Server</PackageId>
+    <PackageTags>dojo;paymentsense;payment;credit;cards;money;gateway</PackageTags>
+    <PackageProjectUrl>https://github.com/dojo-engineering/Dojo.Net.EPOS</PackageProjectUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <RuntimeIdentifiers>win10-x64</RuntimeIdentifiers>
+    <SignAssembly>True</SignAssembly>
+    <!-- <GenerateDocumentationFile>true</GenerateDocumentationFile> -->
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>
+      $(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
 
-    <ItemGroup>
-        <None Include="..\..\LICENSE" Pack="true" PackagePath="" />
-    </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
@@ -44,6 +46,4 @@
       <IncludeAssets>build; analyzers</IncludeAssets>
     </PackageReference>
   </ItemGroup>
-
-  
 </Project>
