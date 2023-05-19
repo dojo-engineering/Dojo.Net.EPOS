@@ -1,9 +1,8 @@
 ﻿using Dojo.Net.EPOS.Server;
 using Microsoft.Extensions.Logging;
 
-const string AccountId = "alex0000";
-const string APIKey = "57c2800b-069a-4232-a70a-5cea81102140";//"Payment1"; //
-
+const string AccountId = "<account_id>";
+const string APIKey = "<api_key>";
 
 using ILoggerFactory loggerFactory =
     LoggerFactory.Create(builder =>
@@ -16,9 +15,8 @@ using ILoggerFactory loggerFactory =
 
 ILogger<Program> logger = loggerFactory.CreateLogger<Program>();
 
-DojoTablesConnector connector = new DojoTablesConnector(AccountId, APIKey, "asdf", isSandbox: true)
+DojoTablesConnector connector = new DojoTablesConnector(AccountId, APIKey, "test-id", isSandbox: true)
 {
-    ResellerId = "alex0000", // optional    
     Logger = logger // optional
 };
 
