@@ -2,8 +2,8 @@ namespace Dojo.Net.EPOS.Server.Schema
 {
     public class CardMachineRequestorInfo
     {
-        string? TerminalId { get; set; }
+        public string? TerminalId { get; set; }
 
-        int? WaiterId { get; set; }
+        public int? WaiterId { get; set; }
     }
 }

@@ -65,9 +65,10 @@ namespace Dojo.Net.EPOS.Server.Schema
     public class PaymentMethodDetails
     {
         public PaymentMethod Method { get; set; }
-        public RemotePaymentStatus? RemotePaymentStatus { get; set; }
-        public CardPresentPaymentStatus? CardPresentPaymentStatus { get; set; }
+        public RemotePaymentStatus? RemotePaymentStatus { get; set; }        
         public RemotePaymentInfo? RemotePaymentInfo { get; set; }
+        public CardPresentPaymentStatus? CardPresentPaymentStatus { get; set; }
+        public CardPresentPaymentInfo? CardPresentPaymentInfo { get; set; }
     }
 
     public enum CardholderVerificationMethod
